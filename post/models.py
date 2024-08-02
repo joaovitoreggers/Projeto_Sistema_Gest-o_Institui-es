@@ -9,3 +9,7 @@ class Post(models.Model):
     updated_at = models.DateTimeField(verbose_name='Atualizado em: ', auto_now=True)
     published_at = models.DateTimeField(verbose_name='Publicado em: ', null=True, blank=True)
     is_published = models.BooleanField(default=False)
+  
+    def __str__(self):
+        return self.title
+    
