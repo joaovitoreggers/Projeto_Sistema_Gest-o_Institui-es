@@ -10,4 +10,3 @@ class PostListCreateView(ListCreateAPIView):
 class PostRetriveUpdateDestroyView(RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
     serializer_class = PostModelSerializer
-    

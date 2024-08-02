@@ -43,7 +43,11 @@ INSTALLED_APPS = [
 
     'accounts',
     'author',
+    'departments',
+    'events',
     'post',
+    'projects',
+    
 ]
 
 MIDDLEWARE = [

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from django.contrib.auth.tokens import PasswordResetTokenGenerator
+from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import User
 
 class UserModelSerializer(serializers.ModelSerializer):
@@ -20,3 +20,17 @@ class SetNewPasswordSerializer(serializers.Serializer):
     password = serializers.CharField(min_length=6, max_length=128, write_only=True)
     token = serializers.CharField(write_only=True)
     uidb64 = serializers.CharField(write_only=True)
+
+class RegisterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['username', 'password', 'email']
+
+    def create(self, validated_data):
+        user = User.objects.create(
+            username=validated_data['username'],
+            email = validated_data['email'],
+            password = make_password(validated_data['password'])
+        )
+        return user
+    
