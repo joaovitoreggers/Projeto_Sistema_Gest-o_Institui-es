@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
 
     'accounts',
+    'authentication',
     'author',
     'departments',
     'events',
@@ -145,3 +146,9 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'joaoguchert195@gmail.com'
 EMAIL_HOST_PASSWORD = 'pfxk jnhm orib ojfn'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
