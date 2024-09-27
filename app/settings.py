@@ -43,7 +43,7 @@ INSTALLED_APPS = [
 
     'accounts',
     'authentication',
-    'author',
+    'authors',
     'departments',
     'events',
     'post',
